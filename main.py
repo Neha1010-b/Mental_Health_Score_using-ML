@@ -15,7 +15,7 @@ app.add_middleware(
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
-) 
+)
 
 
 #A first Pydantic Model
@@ -46,11 +46,12 @@ class PredictionResponse(BaseModel):
 
 @app.get('/')
 def greet():
-    return {'Welcome to Mental Health Score'}
+    return {'Welcome to Sheryians AI School Guys'}
 
 
 @app.post('/predict', response_model=PredictionResponse) #6.77777
 def predict(data: StudentData):
+   
    country_group = data.country if data.country in top_countries else "Other"
 
    input_row = pd.DataFrame([{
